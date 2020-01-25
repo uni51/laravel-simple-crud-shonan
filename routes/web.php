@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'ItemController@index');
+Route::get('/items/create', 'ItemController@create');

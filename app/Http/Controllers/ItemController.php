@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class ItemController extends Controller
 {
     /**
+     * 一覧表示
+     *
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -17,5 +19,15 @@ class ItemController extends Controller
         return view('items.index', [
             'items' => $items
         ]);
+    }
+
+    /**
+     * 登録画面の表示
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function create(Request $request){
+        return view('items.create');
     }
 }

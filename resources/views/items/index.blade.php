@@ -27,7 +27,7 @@
         <a class="btn btn-secondary filtered" style="visibility:hidden" href="/?page=1">検索を解除</a>
         <div class="float-right">
           <!-- TODO リンク先追加 -->
-          <a class="btn btn-outline-secondary" href="">新規</a>
+          <a class="btn btn-outline-secondary" href="{{ action('ItemController@create') }}">新規</a>
           <a class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal" href="#">検索</a>
         </div>
       </div>
@@ -86,7 +86,7 @@
       <div class="col-12">
         <div class="float-right">
           <!-- TODO:リンク先追加 -->
-          <a class="btn btn-outline-secondary" href="">新規</a>
+          <a class="btn btn-outline-secondary" href="{{ action('ItemController@create') }}">新規</a>
           <a class="btn btn-outline-secondary" data-toggle="modal" data-target="#myModal" href="#">検索</a>
         </div>
       </div>
