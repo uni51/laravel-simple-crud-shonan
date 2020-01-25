@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ItemRequest;
 use App\Item;
 use Illuminate\Http\Request;
 
@@ -29,5 +30,21 @@ class ItemController extends Controller
      */
     public function create(Request $request){
         return view('items.create');
+    }
+
+    /**
+     * 登録処理
+     *
+     * @param ItemRequest $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function store(ItemRequest $request){
+        $item = new Item();
+        $item->name = $request->name;
+        $item->age = $request->age;
+        $item->sex = $request->sex;
+        $item->memo = $request->memo;
+        $item->save();
+        return redirect()->action('ItemController@index');
     }
 }

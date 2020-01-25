@@ -13,3 +13,4 @@
 
 Route::get('/', 'ItemController@index');
 Route::get('/items/create', 'ItemController@create');
+Route::post('/items', 'ItemController@store')->name('store');

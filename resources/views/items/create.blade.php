@@ -18,7 +18,7 @@
     <div class="row">
       <div class="col-12">
         <!-- TODO: actionの指定 -->
-        <form method="POST" action="" id="myform">
+        <form method="POST" action="{{ route('store') }}" id="myform">
           @if ($errors->any())
             <div class="alert alert-danger">
               <ul>
