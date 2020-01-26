@@ -71,7 +71,7 @@
                     <!-- TODO:リンク先追加 -->
                     <a class="btn btn-outline-secondary " href="{{ route('show', ['id' => $item->id]) }}">詳細</a>
                     <!-- TODO:リンク先追加 -->
-                    <a class="btn btn-outline-secondary " href="">編集</a>
+                    <a class="btn btn-outline-secondary " href="{{ route('edit', ['id' => $item->id]) }}">編集</a>
                     <!-- TODO:リンク先追加 -->
                     <a class="btn btn-outline-secondary " href="">削除</a>
                   </div>
