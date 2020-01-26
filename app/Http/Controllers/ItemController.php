@@ -47,4 +47,15 @@ class ItemController extends Controller
         $item->save();
         return redirect()->action('ItemController@index');
     }
+
+    /**
+     * 詳細画面の表示
+     * @param string $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show(string $id){
+        $item = Item::findOrFail($id);
+
+        return view('items.show')->with('item', $item);
+    }
 }

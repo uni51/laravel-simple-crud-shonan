@@ -69,7 +69,7 @@
                 <div class="col-12">
                   <div class="float-right">
                     <!-- TODO:リンク先追加 -->
-                    <a class="btn btn-outline-secondary " href="">詳細</a>
+                    <a class="btn btn-outline-secondary " href="{{ route('show', ['id' => $item->id]) }}">詳細</a>
                     <!-- TODO:リンク先追加 -->
                     <a class="btn btn-outline-secondary " href="">編集</a>
                     <!-- TODO:リンク先追加 -->
