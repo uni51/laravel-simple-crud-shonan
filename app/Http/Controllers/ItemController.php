@@ -70,7 +70,6 @@ class ItemController extends Controller
         return view('items.edit')->with('item', Item::findOrFail($id));
     }
 
-
     /**
      * 編集処理
      *
@@ -85,6 +84,28 @@ class ItemController extends Controller
          * ただし、fill()を使う場合は、更新しても良いカラム名をモデルの$fillableで指定しておく必要があります。
          */
         $item->fill($request->all())->save();
+        return redirect()->route('index');
+    }
+
+    /**
+     * 削除確認画面の表示
+     *
+     * @param Item $item
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function delete(Item $item){
+        return view('items.delete')->with('item', $item);
+    }
+
+    /**
+     * 削除処理
+     *
+     * @param Item $item
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
+     */
+    public function destroy(Item $item){
+        $item->delete();
         return redirect()->route('index');
     }
 }

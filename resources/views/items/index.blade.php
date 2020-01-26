@@ -73,7 +73,7 @@
                     <!-- TODO:リンク先追加 -->
                     <a class="btn btn-outline-secondary " href="{{ route('edit', ['id' => $item->id]) }}">編集</a>
                     <!-- TODO:リンク先追加 -->
-                    <a class="btn btn-outline-secondary " href="">削除</a>
+                    <a class="btn btn-outline-secondary " href="{{ route('delete', ['item' => $item]) }}">削除</a>
                   </div>
                 </div>
               </div>
