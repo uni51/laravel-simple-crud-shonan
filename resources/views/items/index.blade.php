@@ -53,7 +53,7 @@
 
     <div class="row" >
       <div class="col-12">
-        <!-- TODO:ページネーション -->
+        {{ $items->links() }}
       </div>
     </div>
 

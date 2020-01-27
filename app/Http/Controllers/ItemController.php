@@ -34,14 +34,14 @@ class ItemController extends Controller
         $items = $query->orderBy('created_at', 'desc')->get();
         */
 
-
         // ローカルスコープを使用する場合、例えばそれがscopeNameFilterという名前であった場合、
         // 名前の先頭に付けたscopeは省略する必要があります
         $items = Item::nameFilter($request->name)
             ->sexFilter($request->sex)
             ->memoFilter($request->memo)
             ->orderBy('created_at', 'desc')
-            ->get();
+            ->paginate(3)
+            ->appends($request->all()); // ページネーションに検索条件(リクエストのパラメーター）を引き継がせる
 
         return view('items.index', [
             'items' => $items
