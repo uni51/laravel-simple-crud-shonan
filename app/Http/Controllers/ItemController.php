@@ -14,8 +14,34 @@ class ItemController extends Controller
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function index(Request $request){
-        $items = Item::orderBy('created_at', 'desc')->get();
+    public function index(Request $request)
+    {
+        /* ローカルスコープを利用することとした為、コメントアウト
+        $query = Item::query();
+
+        if(isset($request->name)){
+            $query->where('name', 'like', '%'.$request->name.'%');
+        }
+
+        if(isset($request->sex)){
+            $query->where('sex', $request->sex);
+        }
+
+        if(isset($request->memo)){
+            $query->where('memo', 'like', '%'.$request->memo.'%');
+        }
+
+        $items = $query->orderBy('created_at', 'desc')->get();
+        */
+
+
+        // ローカルスコープを使用する場合、例えばそれがscopeNameFilterという名前であった場合、
+        // 名前の先頭に付けたscopeは省略する必要があります
+        $items = Item::nameFilter($request->name)
+            ->sexFilter($request->sex)
+            ->memoFilter($request->memo)
+            ->orderBy('created_at', 'desc')
+            ->get();
 
         return view('items.index', [
             'items' => $items
